@@ -43,6 +43,7 @@ User Documentation
    objective
    scope
    hp_xp_business_copy
+   hp_xp_business_copy_script
 
 
 
