@@ -3,8 +3,7 @@ BC-exec.sh Operations
 
 The Business Copy Operations are defined within the BC-exec.sh script itself and these operations will be integrated as workflows by scheduling (e.g. Tidal) scripts in a later phase. The following operations are known:
 
- * **Validate**: check if the host system is eligible to run the script. Operating System and version will be checked. All the pre-requisite software will be checked to see if these are available on the system itself. And, of course is this host system able to use Business Copy at all.
-Is the configuration file for the script accessible (via automount or direct access)?
+ * **Validate**: check if the host system is eligible to run the script. Operating System and version will be checked. All the pre-requisite software will be checked to see if these are available on the system itself. And, of course is this host system able to use Business Copy at all.  Is the configuration file for the script accessible (via automount or direct access)?
 
  * **Resync**: pair the Business Copy disks (MU#0 or MU#1).
 
