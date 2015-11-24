@@ -26,12 +26,12 @@ and new sections through the issue-tracker at:
 
 
 Contents:
-========
+=========
 
 .. toctree::
    :maxdepth: 2
 
-   About
+   about
 
 
 User Documentation
@@ -40,9 +40,9 @@ User Documentation
 .. toctree::
    :maxdepth: 3
 
-   Objective
-   Scope
-   HP XP Business Copy
+   objective
+   scope
+   hp_xp_business_copy
 
 
 
@@ -51,6 +51,4 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
