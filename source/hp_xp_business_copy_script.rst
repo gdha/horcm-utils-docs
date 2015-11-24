@@ -69,11 +69,11 @@ BC-exec.sh Software Requirements
 --------------------------------
 
 The BC-exec.sh is designed to work in different workflows and the script relies on certain input or configuration files which are generated on the source system (where the P-VOLs are residing) and these input files should be made available via NFS export to the system where the S-VOLs are defined on. Therefore, the file system /opr_<package-name> is NFS exported to all target host systems (S-VOLs).
-On environments where the /opr_<package-name> is not available, it is also possible to create this directory on the S-VOL system (which is typically not clustered), nfs-exported to the P-VOL systems and then mounted on the P-VOL side. The configuration file location is provided as a parameter for the script: -c </path/configuration_file>. Keep in mind, that the input files must be available on the ./path. directory, if not, the script will return an error.
+On environments where the /opr_<package-name> is not available, it is also possible to create this directory on the S-VOL system (which is typically not clustered), nfs-exported to the P-VOL systems and then mounted on the P-VOL side. The configuration file location is provided as a parameter for the script: `-c </path/configuration_file>`. Keep in mind, that the input files must be available on the `/path` directory, if not, the script will return an error.
 
 The SAP teams required the possibility to exclude certain SAP mount points, such as /oracle/<SID>. This should be a variable in the configuration file for BC-exec.sh script. 
 
-Furthermore, the SAP teams like the S-VOL MU#0 disks be mounted on their original mount points (from the P-VOL) for backup reasons (with the original mount points). This makes the recovery on the source host (where P-VOL resides) much easier. However, BC-exec.sh is able to mount it on another path if required (by setting an argument option, such as .-F.). The S-VOL MU#1 (second set of Business Copy disks) will always be mounted with a path prefix, such as /mnt/vgBC<SVOL_INST>_<Device-Group-name>.
+Furthermore, the SAP teams like the S-VOL MU#0 disks be mounted on their original mount points (from the P-VOL) for backup reasons (with the original mount points). This makes the recovery on the source host (where P-VOL resides) much easier. However, BC-exec.sh is able to mount it on another path if required (by setting an argument option, such as `-F`). The S-VOL MU#1 (second set of Business Copy disks) will always be mounted with a path prefix, such as /mnt/vgBC<SVOL_INST>_<Device-Group-name>.
 The Volume Group created on the BCV server will always use the following syntax: 
 /dev/vgBC<SVOL_INST>_<Device-Group-name>.
 
