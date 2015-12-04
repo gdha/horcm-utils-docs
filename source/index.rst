@@ -46,6 +46,7 @@ User Documentation
    hp_xp_business_copy_script
    bc_exec_operations
    bc_exec_configuration_file
+   bc_exec_logging
 
 
 
