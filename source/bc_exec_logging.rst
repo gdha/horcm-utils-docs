@@ -1,7 +1,7 @@
 BC-exec.sh Logging
 ==================
 
-Logging actions and steps are key in business copy operations necessary to track what happened and in case of issues to find out what and when something went wrong. Therefore, we foresee two manners of logging::
+Logging actions and steps are key in business copy operations necessary to track what happened and in case of issues to find out what and when something went wrong. Therefore, we foresee two manners of logging:
 
  * Logging to log files
  * Logging to a central syslog file
