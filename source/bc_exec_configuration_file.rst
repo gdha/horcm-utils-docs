@@ -81,3 +81,52 @@ Of course you need to touch this file as follow on the NFS (exported) directory:
 
 Be careful, you must manual remove the suspend file to release the lock on re-syncs and splits.
 
+Layout 2.0
+----------
+
+The main difference with LAYOUT 1.0 format is that LAYOUT 2.0 format allows defining more than one volume group with their corresponding device groups.
+
+An example configuration file in LAYOUT 2.0 format might look like: 
+
+    # Configuration file used by BC-exec.sh
+    # Layout:
+    [LAYOUT]
+    2.0
+    
+    # Option value
+    # PVOL_INST HORCM instance number that defines the PVOLs
+    [PVOL_INST]
+    0
+    
+    # SVOL_INST HORCM instance number that defines the SVOLs
+    [SVOL_INST]
+    1
+    
+    # BC_TIMEOUT is the number of seconds that pairevtwait will wait
+    [BC_TIMEOUT]
+    300
+    
+    # DEV_GRP and VOL_GRP have been merged into DEVGRP_VG
+    # DEV_GRP Device group as specified in HORCM_LDEV section
+    # Per line use: Device-Group  Volume-Group
+    [DEVGRP_VG]
+    vgplulogs /dev/vgplulogs
+    vgpludata /dev/vgpludata
+    
+    # REMOVE_CLUSTER_MODE:
+    # set this flag to Y if you're importing the VG that's part of a
+    # cluster outside that cluster
+    [REMOVE_CLUSTER_MODE]
+    Y
+    
+    # Exclude mount points from being mounted on the BCV side
+    # e.g. [EXCLUDE_MOUNTPOINTS]
+    # /mnt1
+    # /mnt2
+    [EXCLUDE_MOUNTPOINTS]
+    
+    [SUSPEND_SYNC]
+    
+The meanings of the variables (enclosed with bracket braces) are the same as with LAYOUT 1.0 format. If a variable has no definition then that means that the variable is empty (see above **EXCLUDE_MOUNTPOINTS** and **SUSPEND_SYNC** settings).
+
+
