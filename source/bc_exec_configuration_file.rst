@@ -86,7 +86,7 @@ Layout 2.0
 
 The main difference with LAYOUT 1.0 format is that LAYOUT 2.0 format allows defining more than one volume group with their corresponding device groups.
 
-An example configuration file in LAYOUT 2.0 format might look like: 
+An example configuration file in LAYOUT 2.0 format might look like::
 
     # Configuration file used by BC-exec.sh
     # Layout:
