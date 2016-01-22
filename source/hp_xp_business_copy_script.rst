@@ -75,18 +75,18 @@ The SAP teams required the possibility to exclude certain SAP mount points, such
 
 Furthermore, the SAP teams like the S-VOL MU#0 disks be mounted on their original mount points (from the P-VOL) for backup reasons (with the original mount points). This makes the recovery on the source host (where P-VOL resides) much easier. However, BC-exec.sh is able to mount it on another path if required (by setting an argument option, such as ``-F``). The S-VOL MU#1 (second set of Business Copy disks) will always be mounted with a path prefix, such as ``/mnt/vgBC<SVOL_INST>_<Device-Group-name>``.
 
-The Volume Group created on the BCV server will always use the following syntax: 
+The Volume Group created on the BCV server will always use the following syntax::
 
     /dev/vgBC<SVOL_INST>_<Device-Group-name>.
     
-For example, when we run the following command then we mount to the original mount points:
+For example, when we run the following command then we mount to the original mount points::
 
     #-> /opt/jnj/BC/BC-exec.sh -c /opr_dbciRCS/BC/dbciRCS_BC2.cfg mount
     #-> bdf
     /dev/vgBC3_vgdbRCS/lvmntRCS  20480000 5520984 14845808   27% /export/sapmnt/RCS
 
 
-Whereas, when we add the ``-F`` flag to the BC-exec.sh script as an option will mount it with a prefix ``/mnt/vgBC3_vgdbRCS``:
+Whereas, when we add the ``-F`` flag to the BC-exec.sh script as an option will mount it with a prefix ``/mnt/vgBC3_vgdbRCS``::
 
     #-> /opt/jnj/BC/BC-exec.sh -F -c /opr_dbciRCS/BC/dbciRCS_BC2.cfg mount
     #-> bdf
