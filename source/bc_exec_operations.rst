@@ -17,6 +17,7 @@ The Business Copy Operations are defined within the BC-exec.sh script itself and
 
  * **Reversesync**: the S-VOL disks will be reversed sync.ed onto the P-VOL disks (only use in case of emergency as all data will be lost which was present on the P-VOL disks as these disks will be overwritten with older data from the S-VOL side). Therefore, reversesync is a hidden operation (not shown with the help option).
 
- * **Purgelogs**: to remove old log files like `*BC-exec*` from the /var/adm/log directory older than <number> of days (default is 30 days; typically when no day argument was given).
+ * **Purgelogs**: to remove old log files like ``*BC-exec*`` from the ``/var/adm/log`` directory older than <number> of days (default is 30 days; typically when no day argument was given).
 
 The default operation is "validate" when no operation value is specified. Workflows itself are a combination of operations.
+The workflows will be discussed later with plenty of examples.
