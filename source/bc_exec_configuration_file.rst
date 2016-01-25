@@ -7,14 +7,14 @@ The preferred location for the configuration file is
 
 However, the configuration file can be stored anywhere, but then it is up to the user to keep it in sync between the different cluster nodes and the BCV server.
 
-The configuration file can come in two layout formats::
+The configuration file can come in two layout formats:
  * **LAYOUT=1.0** . up to version 1.27 of BC-exec.sh script is using the LAYOUT=1.0 format.
  * **LAYOUT=2.0** . BC-exec.sh version 1.28 and beyond are able to work with both LAYOUT 1.0 and 2.0 formats (one or the other of course). The main difference will be explained below.
 
 Layout 1.0
 ----------
 
-The configuration file described in .LAYOUT=1.0. format is only containing variable definitions and there can only be .one. volume group defined (with corresponding device group). The configuration file will be sourced by BC-exec.sh script. Therefore, treat the content as a shell script.
+The configuration file described in **LAYOUT=1.0** format is only containing variable definitions and there can only be *one* volume group defined (with corresponding device group). The configuration file will be sourced by BC-exec.sh script. Therefore, treat the content of the configuration file as a shell script.
 
 An example configuration file might look like::
 
@@ -57,7 +57,8 @@ An example configuration file might look like::
 
 The **PVOL_INST** variable is an integer which refers to the ``/etc/horcm<PVOL_INST>.conf`` file on the P-VOL system. The **SVOL_INST** variable is an integer which refers to the ``/etc/horcm<SVOL_INST>.conf`` file on the BCV side.
 
-The **DEV_GRP** variable is part of the HORCM_LDEV section of horcm configuration files (must be defined on both sides). The **VOL_GRP** variable defines the Volume Group belonging to the DEV_GRP and the P-VOL side. On the BCV side the Volume Group is normally not required (but it is not prohibited as we import the Volume Group with a unique name . as described in section .BC-exec.sh Software Requirements.).
+The **DEV_GRP** variable is part of the HORCM_LDEV section of horcm configuration files (must be defined on both sides). The **VOL_GRP** variable defines the Volume Group belonging to the DEV_GRP and the P-VOL side.
+On the BCV side the Volume Group is normally not required (but it is not prohibited as we import the Volume Group with a unique name  as described in section *BC-exec.sh Software Requirements*).
 
 If the Volume Group is part of a Serviceguard cluster then we should set the variable **REMOVE_CLUSTER_MODE** to "Y".
 
@@ -129,4 +130,4 @@ An example configuration file in LAYOUT 2.0 format might look like::
     
 The meanings of the variables (enclosed with bracket braces) are the same as with LAYOUT 1.0 format. If a variable has no definition then that means that the variable is empty (see above **EXCLUDE_MOUNTPOINTS** and **SUSPEND_SYNC** settings).
 
-
+The layout 2.0 is the deferred format for the future.
