@@ -47,7 +47,7 @@ User Documentation
    bc_exec_operations
    bc_exec_configuration_file
    bc_exec_logging
-
+   scheduling_jobs
 
 
 Indices and tables
