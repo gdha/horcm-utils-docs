@@ -6,7 +6,7 @@ We are going to show in detail how to use *BC-exec.sh* in practice. We will star
 BC-exec.sh help
 ---------------
 
-We have always a built-in help available:
+We have always a built-in help available::
 
     # ./BC-exec.sh help
     2016-02-03 10:05:15 ERROR: Missing argument "-c configfile"
@@ -43,7 +43,7 @@ We have always a built-in help available:
 BC-exec.sh validate
 -------------------
 
-The validate workflow is only meant to inspect the *BC-exec.sh* configuration file and verify we are dealing with a proper RAID manager setup. It can be run on the P-Vol and S-Vol side at any time, and it is aways called with any other operation (except for the help). Furthermore, if we call *BC-exec.sh* without any *operations* parameter, *validate* is the default one (as you can see below):
+The validate workflow is only meant to inspect the *BC-exec.sh* configuration file and verify we are dealing with a proper RAID manager setup. It can be run on the P-Vol and S-Vol side at any time, and it is aways called with any other operation (except for the help). Furthermore, if we call *BC-exec.sh* without any *operations* parameter, *validate* is the default one (as you can see below)::
 
     # ./BC-exec.sh -c ./dbciRPS.cfg
     2016-02-03 10:11:11 LOG: BC-exec.sh 1.31
@@ -59,7 +59,7 @@ The validate workflow is only meant to inspect the *BC-exec.sh* configuration fi
     2016-02-03 10:11:11 ERROR: Exit code 1
     2016-02-03 10:11:11 LOG: Exit code 1
     
-The above output clearly mentions that the HORCM daemons are **not** running and therefore, we get a fatal error. We executed this command on the P-Vol side. On the S-Vol side we should do the same to verify if the HORCM daemons are running.
+The above output clearly mentions that the HORCM daemons are **not** running and therefore, we get a fatal error. We executed this command on the P-Vol side. On the S-Vol side we should do the same to verify if the HORCM daemons are running::
 
     # /HORCM/usr/bin/horcmstart.sh 5
     starting HORCM inst 5
@@ -67,7 +67,7 @@ The above output clearly mentions that the HORCM daemons are **not** running and
 
 If you wonder why we use *5* for the HORCM instance number? See the HORCM configuration file saved as `/etc/horcm*.conf` and also the BC-exec.sh configuration file mention this next as `PVOL_INST=5` value.
 
-Re-run the `./BC-exec.sh -c ./dbciRPS.cfg` command and now you will see at the end the following:
+Re-run the `./BC-exec.sh -c ./dbciRPS.cfg` command and now you will see at the end the following::
 
     2016-02-03 10:25:16 LOG: validate completed successfully.
     2016-02-03 10:25:16 LOG: Exit code 0
@@ -76,7 +76,7 @@ Re-run the `./BC-exec.sh -c ./dbciRPS.cfg` command and now you will see at the e
 BC-exec.sh extract (on P-Vol side)
 ----------------------------------
 
-The *extract* operation should only be run on the P-Vol side as its main purpose is to collect information about the volume groups and disks belonging to this Business Copy pairs.
+The *extract* operation should only be run on the P-Vol side as its main purpose is to collect information about the volume groups and disks belonging to this Business Copy pairs::
 
     # ./BC-exec.sh -c ./dbciRPS.cfg extract
     2016-02-03 10:26:50 LOG: BC-exec.sh 1.31
@@ -101,12 +101,12 @@ The *extract* operation should only be run on the P-Vol side as its main purpose
     2016-02-03 10:26:51 LOG: extract completed successfully.
     2016-02-03 10:26:51 LOG: Exit code 0
 
-After this run we will get new or updated files (on HP-UX these are):
+After this run we will get new or updated files (on HP-UX these are)::
 
     # ls
     dbciRPS.cfg  vgdbRPS.fs   vgdbRPS.grp  vgdbRPS.map
 
-If the current directory is not NFS shared (e.g. via automounted) then manually copy over these to the same location (very important) to the BCV server (or S-Vol side).
+If the current directory is not NFS shared (e.g. via automounted) then manually copy over these to the same location (very important) to the BCV server (or S-Vol side)::
 
     # scp  * bcv-server:$PWD
 
@@ -115,7 +115,7 @@ Do not forget to re-run the *extract* operation every time you modify the Volume
 BC-exec.sh resync (on S-Vol side)
 ---------------------------------
 
-Resyncing the Business Copy pairs is an essential part in keeping the BC disks in sync. This step is always done before re-splitting the disks to prepare for backup mode.
+Resyncing the Business Copy pairs is an essential part in keeping the BC disks in sync. This step is always done before re-splitting the disks to prepare for backup mode::
 
     # ./BC-exec.sh -c ./dbciRPS.cfg resync
     2016-02-03 10:37:50 LOG: BC-exec.sh 1.31
@@ -159,7 +159,7 @@ In above output we could see that the BC disks were already paired and therefore
 BC-exec.sh split (on S-Vol side)
 --------------------------------
 
-We split the BC disks normally after we have put the database in backup mode so that we are sure that the data inside the database is consistent.
+We split the BC disks normally after we have put the database in backup mode so that we are sure that the data inside the database is consistent::
 
     # ./BC-exec.sh -c ./dbciRPS.cfg split
     2016-02-03 10:51:46 LOG: BC-exec.sh 1.31
@@ -201,7 +201,7 @@ Once the split was successfully executed we can bring the database back out of b
 BC-exec.sh mount (on S-Vol side)
 --------------------------------
 
-The purpose on the BCV server is to create a backup residing on the S-Vol disks without interrupting the production data (on the P-Vol disks). The backup can run as long as necessary to fullfill its job. However, before starting the backup we should mount the file systems:
+The purpose on the BCV server is to create a backup residing on the S-Vol disks without interrupting the production data (on the P-Vol disks). The backup can run as long as necessary to fullfill its job. However, before starting the backup we should mount the file systems::
 
     # ./BC-exec.sh -c ./dbciRPS.cfg mount
     2016-02-03 10:58:44 LOG: BC-exec.sh 1.31
@@ -328,7 +328,7 @@ The purpose on the BCV server is to create a backup residing on the S-Vol disks 
     2016-02-03 10:58:51 LOG: mount completed successfully.
     2016-02-03 10:58:51 LOG: Exit code 0
 
-You should be able to see the mounted file systems:
+You should be able to see the mounted file systems::
 
     #-> mount | grep BC6
     /export/sapmnt/RPS on /dev/vgBC6_vgdbRPS/lvmntRPS ioerror=mwdisable,largefiles,delaylog,nodatainlog,dev=80006001 on Wed Feb  3 10:58:48 2016
@@ -346,7 +346,7 @@ You should be able to see the mounted file systems:
 BC-exec.sh umount (on S-Vol side)
 ---------------------------------
 
-After the backup has been finished there is no need to keep the file systems mounted. And, before we run a *resync* operation we must be sure that all file systems are un-mounted and the Volume Groups are exported. We can do this in one go with this **umount** operation as you see below:
+After the backup has been finished there is no need to keep the file systems mounted. And, before we run a *resync* operation we must be sure that all file systems are un-mounted and the Volume Groups are exported. We can do this in one go with this **umount** operation as you see below::
 
     # ./BC-exec.sh -c ./dbciRPS.cfg umount
     2016-02-03 12:04:26 LOG: BC-exec.sh 1.31
