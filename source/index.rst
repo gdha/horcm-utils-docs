@@ -48,7 +48,8 @@ User Documentation
    bc_exec_configuration_file
    bc_exec_logging
    scheduling_jobs
-   workflows_in_action
+   bc_exec_workflows_in_action
+   suspending_bc_exec
 
 
 Indices and tables

@@ -1,5 +1,5 @@
-Workflows in action
-===================
+BC-exec.sh Workflows in action
+==============================
 
 We are going to show in detail how to use *BC-exec.sh* in practice. We will start on the P-Vol side (the production side, or the node where the Serviceguard package runs on).
 
