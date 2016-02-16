@@ -106,7 +106,7 @@ After this run we will get new or updated files (on HP-UX these are)::
     # ls
     dbciRPS.cfg  vgdbRPS.fs   vgdbRPS.grp  vgdbRPS.map
 
-If the current directory is not NFS shared (e.g. via automounted) then manually copy over these to the same location (very important) to the BCV server (or S-Vol side)::
+If the current directory is not NFS shared (e.g. via automounting) then manually copy over these to the same location (very important) to the BCV server (or S-Vol side)::
 
     # scp  * bcv-server:$PWD
 
