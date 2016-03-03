@@ -1,15 +1,15 @@
-Scheduling Jobs
-===============
+Scheduling Jobs to use BC-exec.sh
+=================================
 
-We have discussed the general use of the tool *BC-exec*, but the real force lies in the use in scheduling jobs. What do we mean by this? In general way a database need to get backed up, and therefore, we should freeze the database during the backup which could take too much time. Using business copies is a practice that is use for a long time to overcome these kind of delays.
+We have discussed the general use of the tool *BC-exec.sh*, but the real force lies in the use of scheduling jobs. What do we mean by this? In general way a database need to get backed up, and therefore, we should freeze the database during the backup which could take too much time. Using business copy is a practice that is in use for a long time to overcome these kind of delays.
 
-BC-exec was exactly designed with this in mind, that is using it with business copies as such and not doing anything with the main production data. In big lines we must do the following:
+BC-exec.sh was exactly designed with this in mind, that is using it with business copy devices and not doing anything with the main production data. In big lines we must do the following:
 
  * **extract**: On the P-Vol side (where the real production data is residing on) extracting the information about the Volume Group that we want to back-up. This will *not* interfere with any daily operational procedure and is non-disruptive. You only need to run this once, and afterwards, when the Volume Group has changed (e.g. adding disks, logical volumes and so on) again.
 
  * **resync**: we sync the S-Vol disks (on the BCV server) with the P-Vol disks to make sure the disks are exactly the same (paired). This operation waits until the pairs are 100% complete, or when the session times out (the *BC_TIMEOUT* variable in seconds multiplied with 12)
 
- * **Put database in backup mode**:  before splitting the paired disks we must put the database in backup mode. During this time the redo logs will be used to keep up with the transactions (on the P-Vol side).
+ * **Put database in backup mode**:  before splitting the paired disks we must put the database in backup mode (on the P-Vol side). During this time the redo logs will be used to keep up with the transactions (on the P-Vol side).
 
  * **split**: once the disks are 100% in pair we should split these immediately before going on (on the BCV server)
 
