@@ -51,6 +51,7 @@ User Documentation
    bc_exec_workflows_in_action
    suspending_bc_exec
    checkhorcmconsistency
+   horcmd_initscript_rhel_script
 
 
 Indices and tables
