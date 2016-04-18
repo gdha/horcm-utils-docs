@@ -6,7 +6,7 @@ Therefore, we wrote this small script to automate this task for you at least on 
 
 The script is self explaining and does not need any manually intervention. If horcmd daemons are running it will automatically created the proper settings in `/etc/sysconfig/horcmd`
 
-The source of the script is available at `GitHub<https://github.com/gdha/horcm-utils/blob/master/usr/local/sbin/horcmd-initscript-rhel-script.sh>`_
+The source of the script is available at `GitHub <https://github.com/gdha/horcm-utils/blob/master/usr/local/sbin/horcmd-initscript-rhel-script.sh>`_
 
-If you create a similar init script for another kind of Linux distribution let me know via opening an `issue on GitHub<https://github.com/gdha/horcm-utils/issues>`_ and we will be glad to add it the the HORCM Utilities.
+If you create a similar init script for another kind of Linux distribution let me know via opening an `issue on GitHub <https://github.com/gdha/horcm-utils/issues>`_ and we will be glad to add it to the HORCM Utilities.
 
