@@ -1,7 +1,7 @@
 About HORCM utilities documentation
 ===================================
 
-The HORCM utilities documentation contains the guideline around BC-exec.sh script..
+The HORCM utilities documentation contains the guideline around BC-exec.sh script. However, some minor other scripts will be explained as well, such as CheckHorcmConsistency.sh.
 
 License
 -------

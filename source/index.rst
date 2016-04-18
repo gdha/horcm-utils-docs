@@ -50,6 +50,7 @@ User Documentation
    scheduling_jobs
    bc_exec_workflows_in_action
    suspending_bc_exec
+   checkhorcmconsistency
 
 
 Indices and tables
