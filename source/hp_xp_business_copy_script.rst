@@ -34,7 +34,7 @@ BC-exec.sh Command Arguments
 
 The BC-exec.sh script has the following usage::
 
-    #-> /opt/jnj/BC/BC-exec.sh -h
+    #-> /usr/local/sbin/BC-exec.sh -h
     Usage: BC-exec.sh [-c /path/configurationfile] [-m mail_destination] [-D log_directory] [-Fdvh]  [Operation]
     
            -c /path/configurationfile
@@ -81,14 +81,14 @@ The Volume Group created on the BCV server will always use the following syntax:
     
 For example, when we run the following command then we mount to the original mount points::
 
-    #-> /opt/jnj/BC/BC-exec.sh -c /opr_dbciRCS/BC/dbciRCS_BC2.cfg mount
+    #-> /usr/local/sbin/BC-exec.sh -c /opr_dbciRCS/BC/dbciRCS_BC2.cfg mount
     #-> bdf
     /dev/vgBC3_vgdbRCS/lvmntRCS  20480000 5520984 14845808   27% /export/sapmnt/RCS
 
 
 Whereas, when we add the ``-F`` flag to the BC-exec.sh script as an option will mount it with a prefix ``/mnt/vgBC3_vgdbRCS``::
 
-    #-> /opt/jnj/BC/BC-exec.sh -F -c /opr_dbciRCS/BC/dbciRCS_BC2.cfg mount
+    #-> /usr/local/sbin/BC-exec.sh -F -c /opr_dbciRCS/BC/dbciRCS_BC2.cfg mount
     #-> bdf
     /dev/vgBC3_vgdbRCS/lvmntRCS  20480000 5520984 14845808   27% /mnt/vgBC3_vgdbRCS/export/sapmnt/RCS
 

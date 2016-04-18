@@ -1,6 +1,6 @@
 CheckHorcmConsistency.sh Script
 ===============================
-In the package we deliver also another script called CheckHorcmConsistency.sh, which has a purpose to investigate the HORCM configuration file. We noticed that adding new disk configuration is not always done in a consistent manner. To bring these bad configuration to our attention we wrote this script.
+In the package we deliver also another script called CheckHorcmConsistency.sh, which has a purpose to investigate the HORCM configuration file. We noticed that adding new disk configuration is not always done in a consistent manner. To bring these bad configurations to our attention we wrote this script.
 
 It can be run on the P-Vol and/or S-Vol side.
 
@@ -21,7 +21,7 @@ You can also ask for a more verbose output with the -v option::
 
     #-> /usr/local/sbin/CheckHorcmConsistency.sh -v
     2016-03-22 08:09:35 VERBOSE: CheckHorcmConsistency.sh revision 1.2
-    2016-03-22 08:09:35 VERBOSE: Started as: /opt/jnj/BC/CheckHorcmConsistency.sh -v
+    2016-03-22 08:09:35 VERBOSE: Started as: /usr/local/sbin/CheckHorcmConsistency.sh -v
     2016-03-22 08:09:35 VERBOSE: LOGFILE=/var/adm/log/CheckHorcmConsistency.log
     2016-03-22 08:09:35 VERBOSE: tmpLOGFILE=/var/tmp/CheckHorcmConsistency-20160322-080935-44706.log
     2016-03-22 08:09:35 VERBOSE: Raid Manager version is 01.29.05
